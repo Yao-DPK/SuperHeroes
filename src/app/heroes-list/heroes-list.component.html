@@ -1,0 +1,3 @@
+<div *ngFor="let hero of heroes | async"> 
+    <app-hero-card [name]="hero.name" [powerstats]="hero.powerstats" [image]="hero.images.lg"></app-hero-card>
+</div>
