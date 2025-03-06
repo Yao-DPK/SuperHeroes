@@ -3,5 +3,12 @@
 }
 
 hr.solid{
-    border-top: 3px solid #000;
+    border-top: 5px solid #000;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.page_content{
+    width: 90%;
+    margin:auto
 }

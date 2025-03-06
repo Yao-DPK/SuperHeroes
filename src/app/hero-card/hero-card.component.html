@@ -1,18 +1,39 @@
 <mat-card class="example-card" appearance="outlined">
-    <img mat-card-image src={{image}} alt="Photo of a Shiba Inu">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{name}}</mat-card-title>
-    </mat-card-header>
-    
-    <mat-card-content>
-      <p>
-        Combat: {{powerstats.combat}} ,
-        Durability: {{powerstats.durability}},
-        Intelligence: {{powerstats.intelligence}},
-        Power: {{powerstats.power}} ,
-        Speed: {{powerstats.speed}} ,
-        Strength: {{powerstats.strength}} 
-      </p>
-    </mat-card-content>
+    <div class="card-layout">
+      <img mat-card-image src="{{image}}" alt="Photo of a Hero" class="card-image">
+      <div class="card-details">
+        <mat-card-header>
+          <mat-card-title class="hero-name">{{name}}</mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <div class="stat">
+            <label>CBT</label> 
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="powerstats.combat"></mat-progress-bar>
+            
+          </div>
+          <div class="stat">
+            <label>DUR</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="powerstats.durability"></mat-progress-bar>
+          </div>
+          <div class="stat">
+            <label>INT</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="powerstats.intelligence"></mat-progress-bar>
+          </div>
+          <div class="stat">
+            <label>POW</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="powerstats.power"></mat-progress-bar>
+          </div>
+          <div class="stat">
+            <label>SPD</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="powerstats.speed"></mat-progress-bar>
+          </div>
+          <div class="stat">
+            <label>STR</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="powerstats.strength"></mat-progress-bar>
+          </div>
+        </mat-card-content>
+      </div>
+    </div>
   </mat-card>
+  

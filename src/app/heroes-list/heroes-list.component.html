@@ -1,3 +1,46 @@
-<div *ngFor="let hero of heroes | async"> 
-    <app-hero-card [name]="hero.name" [powerstats]="hero.powerstats" [image]="hero.images.lg"></app-hero-card>
+<div class="search-container form-outline mt-3">
+  <input type="text" placeholder="Search heroes..." [(ngModel)]="searchText" class="form-control">
 </div>
+
+<mat-grid-list [cols]="numCols" [rowHeight]="rowHeightRatio" [gutterSize]="gutterSize">
+  <mat-grid-tile *ngFor="let hero of heroes | async | filter: searchText">
+    <!--<app-hero-card [name]="hero.name" [powerstats]="hero.powerstats" [image]="hero.images.lg"></app-hero-card>-->
+    <div class="card-layout">
+      <img mat-card-image src="{{hero.images.lg}}" alt="Photo of a Hero" class="card-image">
+      <div class="card-details">
+        <mat-card-header>
+          <mat-card-title class="hero-name">{{hero.name}}</mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <div class="stat">
+            <label>CBT</label> 
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.combat"></mat-progress-bar>
+            
+          </div>
+          <div class="stat">
+            <label>DUR</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.durability"></mat-progress-bar>
+          </div>
+          <div class="stat">
+            <label>INT</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.intelligence"></mat-progress-bar>
+          </div>
+          <div class="stat">
+            <label>POW</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.power"></mat-progress-bar>
+          </div>
+          <div class="stat">
+            <label>SPD</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.speed"></mat-progress-bar>
+          </div>
+          <div class="stat">
+            <label>STR</label>
+            <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.strength"></mat-progress-bar>
+          </div>
+        </mat-card-content>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
