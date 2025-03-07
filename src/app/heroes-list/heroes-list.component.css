@@ -6,29 +6,33 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 30px; /* Increased gap for better spacing between cards */
     padding: 10px;
-    justify-content: center; /* Centers cards in the grid */
-    align-items: start; /* Aligns items at the start of the grid cell */
-    box-sizing: border-box; /* Ensures padding doesn't affect the total width */
+    justify-content: center; 
+    align-items: start; 
+    box-sizing: border-box; 
 }
 
-.mat-grid-tile{
-  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12);
-  padding: 5rem auto;
+.mat-grid-tile {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   border-radius: 25px;
+  overflow: hidden; 
+  background-color: #fff; 
+  cursor: pointer; 
 }
 
-.app-hero-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  
-  flex-wrap: wrap;
-  margin: auto; /* Centers card with automatic horizontal margins */
-  padding: auto;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
+.mat-grid-tile:hover {
+  transform: scale(1.05); /* Slightly scales the tile on hover */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Increase the shadow for a "lifted" effect */
+  background-color: #f9f9f9; /* Light change in background color */
+}
+
+.mat-grid-tile:focus {
+  outline: none; 
+  border: 2px solid #0056b3; 
+}
+
+.mat-grid-tile:active {
+  transform: scale(0.95); /* Slightly decrease the size to mimic a button press */
 }
 
 .card-layout {
@@ -41,9 +45,9 @@
 }
 
 .card-image {
-  max-width: 40%; /* Relative width to make it responsive */
-  height: auto; /* Adjust height automatically based on its width */
-  object-fit: cover; /* Ensures the image covers the designated area without distortion */
+  max-width: 40%; 
+  height: auto; 
+  object-fit: cover; 
 }
 
 .mat-card-header {

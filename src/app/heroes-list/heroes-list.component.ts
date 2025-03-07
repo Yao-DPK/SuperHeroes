@@ -5,6 +5,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +13,7 @@ import { FilterPipe } from "../filter.pipe";
 import { Router, RouterModule } from '@angular/router'; // Import Router
 import { HeroInfosComponent } from '../hero-infos/hero-infos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 
 
@@ -27,10 +29,17 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     FilterPipe,
     HttpClientModule,
-    RouterModule
 ],
   templateUrl: './heroes-list.component.html',
-  styleUrl: './heroes-list.component.css'
+  styleUrl: './heroes-list.component.css',
+  animations: [
+    trigger('progressAnim', [
+      transition(':enter', [
+        style({ width: '0%' }),
+        animate('2s ease-out', style({ width: '{{ finalWidth }}%' })),
+      ], { params: { finalWidth: 100 } })
+    ])
+  ]
 })
 export class HeroesListComponent implements OnInit {
   heroes: Observable<any> = new Observable();
@@ -53,11 +62,6 @@ export class HeroesListComponent implements OnInit {
   ngOnInit(): void {
     this.loadHeroes();
     this.adjustGridSettings();
-    this.filteredHeroes = this.heroes.pipe(
-      map(heroes => heroes.filter((hero: { name: string; }) => 
-        hero.name.toLowerCase().includes(this.searchText.toLowerCase())
-      ))
-    );
   }
 
   loadHeroes(): void {
@@ -70,23 +74,23 @@ export class HeroesListComponent implements OnInit {
       if (width < 480) {
         this.numCols = 1;
         this.rowHeightRatio = '1:1';
-        this.gutterSize = '5px';
+        this.gutterSize = '10px';
       } else if (width < 960) {
         this.numCols = 2;
         this.rowHeightRatio = '2:2';
-        this.gutterSize = '8px';
+        this.gutterSize = '20px';
       } else if (width < 1340) {
         this.numCols = 3;
         this.rowHeightRatio = '3:3';
-        this.gutterSize = '10px';
+        this.gutterSize = '30px';
       } else if (width < 1820) {
         this.numCols = 4;
         this.rowHeightRatio = '4:4';
-        this.gutterSize = '12px';
+        this.gutterSize = '40px';
       } else {
         this.numCols = 5;
         this.rowHeightRatio = '5:5';
-        this.gutterSize = '15px';
+        this.gutterSize = '50px';
       }
     }
   }
