@@ -18,28 +18,27 @@
               <mat-card-content>
                 <div class="stat">
                   <label>CBT</label> 
-                  <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.combat"></mat-progress-bar>
-                  
+                  <div class="stats_bar" style="--percent: {{hero.powerstats.combat}}%"></div>
                 </div>
                 <div class="stat">
                   <label>DUR</label>
-                  <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.durability"></mat-progress-bar>
+                  <div class="stats_bar" style="--percent: {{hero.powerstats.durability}}%"></div>
                 </div>
                 <div class="stat">
                   <label>INT</label>
-                  <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.intelligence"></mat-progress-bar>
+                  <div class="stats_bar" style="--percent: {{hero.powerstats.intelligence}}%"></div>
                 </div>
                 <div class="stat">
                   <label>POW</label>
-                  <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.power"></mat-progress-bar>
+                  <div class="stats_bar" style="--percent: {{hero.powerstats.power}}%"></div>
                 </div>
                 <div class="stat">
                   <label>SPD</label>
-                  <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.speed"></mat-progress-bar>
+                  <div class="stats_bar" style="--percent: {{hero.powerstats.speed}}%"></div>
                 </div>
                 <div class="stat">
                   <label>STR</label>
-                  <mat-progress-bar class="custom-progress" mode="determinate" [value]="hero.powerstats.strength"></mat-progress-bar>
+                  <div class="stats_bar" style="--percent: {{hero.powerstats.strength}}%"></div>
                 </div>
               </mat-card-content>
             </div>
