@@ -5,10 +5,12 @@ import { Hero } from '../models/hero';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @Component({
   selector: 'app-hero-infos',
-  imports: [CommonModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, HttpClientModule, RouterModule, MatButtonModule],
   templateUrl: './hero-infos.component.html',
   styleUrls: ['./hero-infos.component.css']
 })
