@@ -4,15 +4,20 @@ import { Observable } from 'rxjs';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HeroesService {
+  
   private apiUrl = 'https://akabab.github.io/superhero-api/api'
 
   constructor(private http: HttpClient) {}
 
   getallHeroes(): Observable<any>{
     return this.http.get(`${this.apiUrl}/all.json`);
+  }
+
+  getHero(id: number): any{
+    return this.http.get(`${this.apiUrl}/id/${id}.json`);
   }
 
 }

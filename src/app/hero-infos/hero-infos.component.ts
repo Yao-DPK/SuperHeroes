@@ -1,11 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { HeroesService } from '../services/heroes.service';
+import { Hero } from '../models/hero';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-hero-infos',
-  imports: [],
+  imports: [CommonModule, HttpClientModule, RouterModule],
   templateUrl: './hero-infos.component.html',
-  styleUrl: './hero-infos.component.css'
+  styleUrls: ['./hero-infos.component.css']
 })
-export class HeroInfosComponent {
+export class HeroInfosComponent implements OnInit {
+  heroId!: number;
+  hero$!: Observable<Hero>; 
 
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private heroService: HeroesService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.heroId = +params['id']; 
+      this.loadHero();
+    });
+  }
+
+  loadHero(): void {
+    this.hero$ = this.heroService.getHero(this.heroId); 
+  }
+
+  goBack(): void {
+    this.router.navigate(['/heroes']);
+  }
 }

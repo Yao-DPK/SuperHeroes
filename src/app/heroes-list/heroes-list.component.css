@@ -37,6 +37,7 @@
   height: 100%;
   margin-right: 5%;
   align-items: space-between;
+  cursor: pointer;
 }
 
 .card-image {
@@ -92,7 +93,9 @@ mat-progress-bar {
   width: 100%;
   box-sizing: border-box;
   justify-content: center;
-  /*box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12);*/
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 input[type="text"] {
@@ -106,15 +109,31 @@ input[type="text"] {
 
 @media (max-width: 600px) {
   .example-card {
-    flex-direction: column; /* Stacks elements vertically on smaller screens */
+    flex-direction: column; 
   }
 
   .card-image {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%; 
   }
 
   .card-details {
-    order: 1; /* Ensures details come before image if needed */
+    order: 1; 
   }
 }
 
+.title{
+  text-align: center;
+  font-weight: bold; 
+
+}
+
+hr.solid{
+  border-top: 5px solid #000;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.page_content{
+  width: 90%;
+  margin:auto
+}
