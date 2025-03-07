@@ -1,0 +1,39 @@
+.title{
+    text-align: center;
+    font-weight: bold; /* Makes the name bold */
+  
+  }
+  
+  hr.solid{
+    border-top: 5px solid #000;
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .page_content{
+    width: 90%;
+    margin:auto
+  }
+
+  .hero-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 1%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+  .hero-details h2, .hero-details h3 {
+    color: #2a2a2a;
+    font-weight: bold;
+  }
+  .hero-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .hero-details img {
+    width: 30%;
+    height: auto;
+    border-radius: 25px;
+  }
